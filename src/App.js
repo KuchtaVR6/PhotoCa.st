@@ -5,6 +5,10 @@ import {useEffect, useRef, useState} from "react";
 import "@splidejs/splide/dist/css/themes/splide-skyblue.min.css";
 
 import Home from "./components/Home.js";
+import Coming from "./components/Coming.js";
+import MoreInfo from "./components/MoreInfo.js";
+import Humidity from "./components/Humidity.js";
+import Landing from "./components/Landing.js";
 import Forecast from "./components/Forecast.js";
 import Map from "./components/Map.js";
 import Topbar from "./components/Topbar.js";
