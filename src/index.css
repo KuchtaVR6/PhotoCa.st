@@ -246,42 +246,21 @@ body {
   background-color: #ACA7CB;
 }
 
-b{
-  font-size:125%;
-}
+#float-container{
+  border: 3px solid #fff;
+  padding: 0;
+ }
+ 
+ #float-container b{
+   font-size:large;
+ }
  
  #float-child{
-   font-size:125%;
-   box-sizing: content-box;
    width: 50%;
    float: left;
    padding-top: 0px;
-   
  }
 
- .humidity{
-   margin-left:6%;
-   text-align: left;
-   font-weight: bolder;
- }
-
- .cloud{
-   font-weight: bolder;
-   font-size: larger;
- }
-
- .coming{
-  background-color:rgba(105, 105, 105, 0.438);
-  border: 1px rgb(61, 61, 61) solid;
-  color: white;
-  border-radius: 5px;
-  width: 100%;
-  height: inherit;
-}
-
-.day{
-  float:left;
-}
 
  #TimesTop {
    color: white;
@@ -333,3 +312,21 @@ b{
  #Dusk{
    width: 50%;
  }
+
+
+ .day{
+  float:left;
+}
+
+
+.humidity{
+  padding-top: 2%;
+  margin-left:6%;
+  text-align: left;
+  font-weight: bolder;
+}
+
+.cloud{
+  font-weight: bolder;
+  font-size: larger;
+}

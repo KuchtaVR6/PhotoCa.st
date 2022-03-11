@@ -18,7 +18,7 @@ function App() {
 
     const getJSONWeather = async () => {
         console.log(lati,long)
-        const url = `https://api.openweathermap.org/data/2.5/onecall?lat=0&lon=50&cnt=7&appid=c771b4a71a2bb5a57117433fcf3558dd`;
+        const url = `https://api.openweathermap.org/data/2.5/onecall?lat=51.25&lon=0&cnt=7&appid=c771b4a71a2bb5a57117433fcf3558dd`;
         const response = await fetch(url);
         return await (await response.json());
     }
@@ -33,13 +33,11 @@ function App() {
         const fetchData = async () => {
             const weather = await getJSONWeather()
             setWeatherData(weather)
-            console.log(weather)
         }
         if (initRender.current) {
             fetchData();
             initRender.current = false
         }else{
-            console.log(weatherData)
             //inserting the labels into the buttons
             var buttons = document.querySelectorAll("[aria-label=\"Go to slide 1\"]");
             var text = document.createTextNode("Home");

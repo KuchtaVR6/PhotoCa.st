@@ -9,12 +9,10 @@ const MoreInfo = ({weatherData}) => {
     <div id="moreinfo">
       __________________________________________
       <div className="linesInfo">
-        <DawnDusk sunrise={weatherData['current']['sunrise']} sunset={weatherData['current']['sunset']}/>
-      </div>
-      <div className="linesInfo">
+        <DawnDusk sunrise={weatherData['current']['sunrise']} sunset={weatherData['current']['sunset']}/><br/>
         <Exposure cloudCover={weatherData['current']['clouds']}/>
       </div>
-
+      <br/>
       <div className="blockInfo">
         <Coming name="Jhanvi" due="4.03" />
       </div>
@@ -22,9 +20,16 @@ const MoreInfo = ({weatherData}) => {
       <div className="linesInfo">
         <Humidity humidity={weatherData['current']['humidity']} cloud={weatherData['current']['clouds']} visibility={weatherData['current']['visibility']}/> 
       </div>
+      <br/>
 
       <div className="blockInfo">
         <Coming name="Mohammed" due="4.03" comment={"isMetric : boolean"}/>
+      </div>
+
+      <div>
+        <hr/>
+        <b>Copyright &copy;</b>
+        <h5>Patryk Kuchta, Alexis S. C. Menard, Navid Satar</h5>
       </div>
 
     </div>

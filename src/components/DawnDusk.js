@@ -9,7 +9,7 @@ const DawnDusk = ({sunrise,sunset}) => {
   }
 
   /*Get hours and minutes for dusk */
-  var epoch = parseInt(sunset-3600);
+  var epoch = parseInt(sunset+3200);
   var myDate = new Date(epoch*1000);
   var hourDusk = myDate.getHours();
   var minutesDusk = myDate.getMinutes();
