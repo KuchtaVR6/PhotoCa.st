@@ -8,9 +8,8 @@ import Home from "./components/Home.js";
 import Forecast from "./components/Forecast.js";
 import Map from "./components/Map.js";
 import Topbar from "./components/Topbar.js";
-import Searchbar from "./components/Searchbar";
+import Searchbar from "./components/Searchbar.js";
 import Sidebar from "./components/Sidebar.js";
-import { ImSearch } from "react-icons/im";
 
 function App() {
     const getJSONLocation = async (query) => {

@@ -36,10 +36,13 @@ const TimesTop = ({ time, sunrise, sunset, nextSunrise }) => {
 
   useEffect(()=>{
     function goldenHour() {
-      console.log(time)
-      console.log(nextSunrise)
-      if ((time > sunset) || (time < sunrise)) {
+      if (time > sunset) {
         return (getDifference(time, nextSunrise) + ' until Golden Hour.')
+      }
+
+      else if (time < sunrise)
+      {
+        return (getDifference(time, sunrise) + ' until Golden Hour.')
       }
   
       else if ((time > (sunrise + 3600)) && (time < (sunset - 3600))) {
@@ -67,7 +70,10 @@ const TimesTop = ({ time, sunrise, sunset, nextSunrise }) => {
     var hours = ~~(difference / 3600)
     var differenceMin = difference - (hours * 3600)
     var minutes = ~~(differenceMin / 60)
-    if (difference < 3600) {
+    if (difference < 60) {
+      return ('Less than a minute')
+    }
+    else if (difference < 3600) {
       return (minutes + ' minutes')
     }
     else {

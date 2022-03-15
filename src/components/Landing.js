@@ -1,5 +1,4 @@
 import MoreInfo from './MoreInfo.js'
-import Coming from './Coming.js'
 import TimesTop from './TimesTop.js'
 import Temp from './Temp.js'
 
@@ -7,8 +6,10 @@ import { useState, useEffect } from 'react'
 
 var interval;
 
-const Landing = ({weatherData}) => {
+const Landing = ({weatherData, isMetric}) => {
   const[time, setTime] = useState(0)
+
+  console.log(isMetric)
 
   useEffect(() => {
     const refreshTime = () => {
@@ -18,18 +19,19 @@ const Landing = ({weatherData}) => {
     refreshTime();
     interval = setInterval(refreshTime, 10000)
   },[weatherData]);
-
   
-
   return (
     <div id="landing">
       <div id="temperature">
         <Temp textMainTemp={270}/>
       </div>
       <div id="hours">
-        <TimesTop time={time} sunrise={weatherData['current']['sunrise']+weatherData['timezone_offset']} sunset={weatherData['current']['sunset']+weatherData['timezone_offset']} nextSunrise={weatherData['daily']['0']['sunrise']+weatherData['timezone_offset']}/>
+        <TimesTop time={time} sunrise={weatherData['current']['sunrise']+weatherData['timezone_offset']} sunset={weatherData['current']['sunset']+weatherData['timezone_offset']} nextSunrise={weatherData['daily']['1']['sunrise']+weatherData['timezone_offset']}/>
       </div>
-      <MoreInfo weatherData={weatherData}/>
+      <MoreInfo 
+        weatherData={weatherData}
+        isMetric = {isMetric}
+        />
     </div>
   )
 }

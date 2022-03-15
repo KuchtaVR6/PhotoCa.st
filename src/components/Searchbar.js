@@ -14,17 +14,17 @@ const Searchbar = ({ toggle, showSearchBar, changeLocation }) => {
         <tbody>
           <tr>
             <th id="SearchCancelTable">
-              <button id="SearchCancel" onClick={toggle}>
+              <button onClick={toggle}>
                 <MdCancel />
               </button>
             </th>
             <th id="SearchInputTable">
               <div id="SearchInput">
-                <input id="city" type="text" ></input>
+                <input id="city" type="text" onchange={search}></input>
               </div>
             </th>
             <th id="SearchComfirmTable">
-              <button id="search" onClick={search}>
+              <button onClick={search}>
                 <AiOutlineSearch />
               </button>
             </th>

@@ -138,7 +138,7 @@ body {
   width: 100%;
   left: 100%;
   height: 7%;
-  background-color: rgb(255, 0, 0);
+  background-color: rgb(255, 255, 255);
   text-align: left;
   transition: left 0.3s ease-in-out;
 }
@@ -164,7 +164,8 @@ body {
 }
 
 #SearchTable{
-  margin-top:3%;
+  margin-top: 2%;
+  height: 5%;
   width:100%;
 }
 
@@ -178,17 +179,20 @@ body {
 
 #SearchInput input{
   font-size:1.5em;
+  padding: 2%;
+  border-radius: 4%;
   border: none;
   width: 90%;
   background-color: #ACA7CB;
 }
 
-#SearchCancel svg{
+#SearchTable svg{
   width: 2em;
   height: 2em;
 }
 
-#SearchCancel{
+#SearchTable button{
+  margin-left: 10%;
   background: none;
   border: none;
 }
@@ -446,4 +450,8 @@ body {
 .cloud{
   font-weight: bolder;
   font-size: larger;
+}
+
+.arrow{
+  width: 20%;
 }

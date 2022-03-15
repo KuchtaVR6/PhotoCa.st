@@ -2,8 +2,9 @@ import Coming from './Coming.js'
 import Humidity from './Humidity.js'
 import Exposure from './Exposure.js'
 import DawnDusk from './DawnDusk.js'
+import Wind from './Wind.js'
 
-const MoreInfo = ({weatherData}) => {
+const MoreInfo = ({weatherData,isMetric}) => {
   return (
     <div id="moreinfo">
       ________________________________________________
@@ -17,12 +18,12 @@ const MoreInfo = ({weatherData}) => {
       </div>
 
       <div className="linesInfo">
-        <Humidity humidity={weatherData['current']['humidity']} cloud={weatherData['current']['clouds']} visibility={weatherData['current']['visibility']}/> 
+        <Humidity humidity={weatherData['current']['humidity']} cloud={weatherData['current']['clouds']} visibility={weatherData['current']['visibility']} isMetric={isMetric}/> 
       </div>
       <br/>
 
       <div className="blockInfo">
-        <Coming name="Mohammed" due="4.03" comment={"isMetric : boolean"}/>
+        <Wind speed={20} isMetric={true} direction={190}/>
       </div>
 
       <div>
