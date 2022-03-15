@@ -4,12 +4,11 @@ import Exposure from './Exposure.js'
 import DawnDusk from './DawnDusk.js'
 
 const MoreInfo = ({weatherData}) => {
-  console.log(weatherData)
   return (
     <div id="moreinfo">
-      __________________________________________
+      ________________________________________________
       <div className="linesInfo">
-        <DawnDusk sunrise={weatherData['current']['sunrise']} sunset={weatherData['current']['sunset']}/><br/>
+        <DawnDusk sunrise={weatherData['current']['sunrise']+weatherData['timezone_offset']} sunset={weatherData['current']['sunset']+weatherData['timezone_offset']}/><br/>
         <Exposure cloudCover={weatherData['current']['clouds']}/>
       </div>
       <br/>

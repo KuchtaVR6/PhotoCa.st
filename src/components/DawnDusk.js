@@ -20,10 +20,13 @@ const DawnDusk = ({sunrise,sunset}) => {
     return (
     <div id = "dawndusk">
         <table id ="ddtable">
+          <tbody>
             <tr>
                 <th id="dawn">Dawn : {hourDawn}:{minutesDawn}</th>
+                <th id="ddfiller"></th>
                 <th id="dusk">Dusk : {hourDusk}:{minutesDusk}</th>
             </tr>
+            </tbody>
         </table>
     </div>
     )

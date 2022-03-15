@@ -132,6 +132,90 @@ body {
   text-align: left;
 }
 
+.Searchbar{
+  position: fixed;
+  z-index: 3;
+  width: 100%;
+  left: 100%;
+  height: 7%;
+  background-color: rgb(255, 0, 0);
+  text-align: left;
+  transition: left 0.3s ease-in-out;
+}
+
+/*
+
+.sidebar {
+  position: fixed;
+  z-index: 10;
+  top: 0px;
+  height: 100vh;
+  left: -100vw;
+  width: 100vw;
+  font-size: 50%;
+  transition: left 0.3s ease-in-out;
+  
+}
+
+*/
+
+.Searchbar.open {
+  left: 0;
+}
+
+#SearchTable{
+  margin-top:3%;
+  width:100%;
+}
+
+#SearchInputTable{
+  width:70%;
+}
+
+#SearchInput{
+  margin-left: 6%;
+}
+
+#SearchInput input{
+  font-size:1.5em;
+  border: none;
+  width: 90%;
+  background-color: #ACA7CB;
+}
+
+#SearchCancel svg{
+  width: 2em;
+  height: 2em;
+}
+
+#SearchCancel{
+  background: none;
+  border: none;
+}
+
+#SearchCancelTable{
+  width:15%;
+  background: none;
+  border: none;
+}
+
+#search svg{
+  width: 2em;
+  height: 2em;
+}
+
+#SearchComfirmTable{
+  width: 15%;
+}
+
+#search{
+  margin-top: 1.8vh;
+  margin-right: 1.8vh;
+  float: right;
+  background: none;
+  border: none;
+}
+
 #sidebarButton{
   margin-top: 1.8vh;
   margin-left: 1.8vh;
@@ -241,7 +325,6 @@ body {
   padding-top: 12%;
   background-color: rgb(255, 255, 255);
 }
-
 .map{
   background-color: #ffffff;
 }
@@ -250,12 +333,19 @@ body {
   margin-top: 0.8%;
 }
 
-.map iframe h4{
+.map div{
+  font-size: 2em;
+  width: 100%;
+  padding-top: 4%;
+  margin: 0 auto;
+  text-align: center;
+  position: fixed;
   z-index: 3;
-  padding-top: 20%;
+  top: 3%;
 }
 
 .map iframe{
+  padding-top: 21%;
   height: inherit;
 }
 
@@ -263,10 +353,11 @@ body {
   position: fixed;
   z-index: 1;
   width: 100%;
-  height: 7%;
+  height: 3.8%;
   background-color: rgb(255, 255, 255);
   text-align: left;
 }
+
 
 #float-container{
   border: 3px solid #fff;
@@ -328,11 +419,15 @@ body {
  }
  
  #Dawn{
-   width: 50%;
+   width: 30%;
  }
  
+#ddfiller{
+   width: 40%;
+}
+
  #Dusk{
-   width: 50%;
+   width: 30%;
  }
 
 

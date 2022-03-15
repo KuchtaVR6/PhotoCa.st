@@ -8,17 +8,21 @@ import Home from "./components/Home.js";
 import Forecast from "./components/Forecast.js";
 import Map from "./components/Map.js";
 import Topbar from "./components/Topbar.js";
+import Searchbar from "./components/Searchbar";
 import Sidebar from "./components/Sidebar.js";
 import { ImSearch } from "react-icons/im";
 
 function App() {
+    const getJSONLocation = async (query) => {
+        const url = `http://api.openweathermap.org/geo/1.0/direct?q=${query}&limit=1&appid=c771b4a71a2bb5a57117433fcf3558dd`;
+        const response = await fetch(url);
+        return await (await response.json());
+    }
 
-    const[lati, setLati] = useState(0)
-    const[long, setLong] = useState(0)
-
-    const getJSONWeather = async () => {
-        console.log(lati,long)
-        const url = `https://api.openweathermap.org/data/2.5/onecall?lat=51.25&lon=0&cnt=7&appid=c771b4a71a2bb5a57117433fcf3558dd`;
+    const getJSONWeather = async (query) => {
+        const loc = await getJSONLocation(query);
+        //console.log(loc);
+        const url = `https://api.openweathermap.org/data/2.5/onecall?lat=${loc["0"]["lat"]}&lon=${loc["0"]["lon"]}&cnt=7&appid=c771b4a71a2bb5a57117433fcf3558dd`;
         const response = await fetch(url);
         return await (await response.json());
     }
@@ -26,17 +30,20 @@ function App() {
     const [isMetric, setIsMetric] = useState(true);
     const [largeFont, setLF] = useState(false);
     const [showSidebar, setSidebar] = useState(false);
+    const [showSearchBar, setSearchBar] = useState(false);
     const [weatherData, setWeatherData] = useState({});
     const initRender = useRef(true)
 
+    const fetchData = async (query) => {
+        const weather = await getJSONWeather(query)
+        console.log(weather)
+        setWeatherData(weather)
+    }
+
     useEffect( () => {
-        const fetchData = async () => {
-            const weather = await getJSONWeather()
-            setWeatherData(weather)
-        }
-        if (initRender.current) {
-            fetchData();
-            initRender.current = false
+        if(initRender.current){
+            fetchData("London");
+            initRender.current = false;
         }else{
             //inserting the labels into the buttons
             var buttons = document.querySelectorAll("[aria-label=\"Go to slide 1\"]");
@@ -63,6 +70,20 @@ function App() {
         setSidebar(!showSidebar);
     };
 
+    const toggleSearch = (event) => {
+        event.preventDefault();
+        setSearchBar(!showSearchBar)
+    }
+
+    const toggleSearchNoArg = () => {
+        setSearchBar(!showSearchBar)
+    }
+
+    const changeLocation = async (query) => {
+        toggleSearchNoArg();
+        await fetchData(query);
+    }
+
     const setMetric = () =>{
         setIsMetric(true);
     };
@@ -85,7 +106,12 @@ function App() {
 
     return (
         <div className={largeFont? "App largeFont":"App"}>
-            <Topbar toggle={toggleSide}/>
+            <Topbar toggle={toggleSide}
+                    toggleSearch={toggleSearch}/>
+            <Searchbar 
+                toggle={toggleSearch} 
+                showSearchBar={showSearchBar}
+                changeLocation={changeLocation}/>
             <Sidebar 
                 showSidebar={showSidebar} 
                 toggle={toggleSide} 

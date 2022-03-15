@@ -1,18 +1,24 @@
+import { useEffect, useState } from "react";
 
 
-const TimesTop = ({ sunrise, sunset, nextSunrise }) => {
+
+const TimesTop = ({ time, sunrise, sunset, nextSunrise }) => {
+
+  const[goldenHour,setGH] = useState();
+
   /*Get hours and minutes for current time */
-  var myDate = new Date();
-  var time = myDate.getTime() / 1000;
+
+  var epoch = parseInt(time);
+  var myDate = new Date(epoch * 1000);
   var hourNow = myDate.getHours();
   var minutesNow = myDate.getMinutes();
   if (minutesNow < 10) {
-    minutesNow = '0' + minutesNow
+    minutesNow = '0' + parseInt(minutesNow)
   }
 
   /*Get hours and minutes for sunirse */
-  var epoch = parseInt(sunrise);
-  var myDate = new Date(epoch * 1000);
+  epoch = parseInt(sunrise);
+  myDate = new Date(epoch * 1000);
   var hourRise = myDate.getHours();
   var minutesRise = myDate.getMinutes();
   if (minutesRise < 10) {
@@ -20,32 +26,41 @@ const TimesTop = ({ sunrise, sunset, nextSunrise }) => {
   }
 
   /*Get hours and minutes for sunset */
-  var epoch = parseInt(sunset);
-  var myDate = new Date(epoch * 1000);
+  epoch = parseInt(sunset);
+  myDate = new Date(epoch * 1000);
   var hourSet = myDate.getHours();
   var minutesSet = myDate.getMinutes();
   if (minutesSet < 10) {
     minutesSet = '0' + minutesSet
   }
 
-  function goldenHour() {
-    if ((time > sunset) || (time < sunrise)) {
-      return (getDifference(time, nextSunrise) + ' until Golden Hour.')
+  useEffect(()=>{
+    function goldenHour() {
+      console.log(time)
+      console.log(nextSunrise)
+      if ((time > sunset) || (time < sunrise)) {
+        return (getDifference(time, nextSunrise) + ' until Golden Hour.')
+      }
+  
+      else if ((time > (sunrise + 3600)) && (time < (sunset - 3600))) {
+        return (getDifference(time, (sunset - 3600)) + ' until Blue Hour.')
+      }
+  
+      else if ((time > sunrise) && (time <= sunrise + 3600)) {
+        return (getDifference(time, sunrise + 3600) + ' left in Golden Hour.')
+      }
+  
+      else {
+        return (getDifference(time,sunset) + ' left in Blue Hour.')
+      }
+  
     }
 
-    else if ((time > (sunrise + 3600)) && (time < (sunset - 3600))) {
-      return (getDifference(time, (sunset - 3600)) + ' until Blue Hour.')
-    }
+    setGH(goldenHour())
+    
+  },[time,nextSunrise,sunrise,sunset])
 
-    else if ((time > sunrise) && (time <= sunrise + 3600)) {
-      return (getDifference(time, sunrise + 3600) + ' left in Golden Hour.')
-    }
 
-    else {
-      return (getDifference(time, sunset - 3600) + ' left in Blue Hour.')
-    }
-
-  }
 
   function getDifference(current, end) {
     var difference = end - current
@@ -71,7 +86,7 @@ const TimesTop = ({ sunrise, sunset, nextSunrise }) => {
           </tr>
         </tbody>
       </table>
-      <div id="GoldenHour"> {goldenHour()}</div>
+      <div id="GoldenHour"> {goldenHour}</div>
     </div>
   )
 }
