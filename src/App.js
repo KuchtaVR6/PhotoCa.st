@@ -130,7 +130,7 @@ function App() {
                     <Home weatherData={weatherData} isMetric={isMetric}/>
                 </SplideSlide>
                 <SplideSlide>
-                    <Forecast/>
+                    <Forecast weatherData={weatherData}/>
                 </SplideSlide>
                 <SplideSlide>
                     <Map/>

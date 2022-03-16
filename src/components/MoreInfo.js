@@ -10,9 +10,8 @@ const MoreInfo = ({weatherData,isMetric}) => {
       ________________________________________________
       <div className="linesInfo">
         <DawnDusk sunrise={weatherData['current']['sunrise']+weatherData['timezone_offset']} sunset={weatherData['current']['sunset']+weatherData['timezone_offset']}/><br/>
-        <Exposure cloudCover={weatherData['current']['clouds']}/>
       </div>
-      <br/>
+      <Exposure cloudCover={weatherData['current']['clouds']}/>
       <div className="blockInfo">
         <Coming name="Jhanvi" due="4.03" />
       </div>

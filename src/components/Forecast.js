@@ -1,6 +1,6 @@
 import Coming from "./Coming"
 
-const Forecast = () => {
+const Forecast = ({weatherData}) => {
   return (
     <div className="page forecast">
       <div className="smallfore">

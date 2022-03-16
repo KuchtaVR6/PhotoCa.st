@@ -9,7 +9,7 @@ body {
 
 .page{
   width: 100vw;
-  height: 170vh;
+  height: 180vh;
 }
 
 .splide__pagination{
@@ -452,6 +452,30 @@ body {
   font-size: larger;
 }
 
+.arrow {
+  height: 100px;  
+  width: 100px; 
+  margin: 0;
+  position: relative;
+  top: 72.5%;
+  left: 2%;
+
+}
+
 .arrow{
-  width: 20%;
+  max-width: 100%;  
+  height: auto;
+}
+.windspeed{
+  position: absolute;
+  top:78%;
+  left:11%
+ 
+}
+.wind{
+  font-weight: bold;
+  position:absolute;
+  top: 75%;
+  left:10%;
+  font-size: 30px;
 }
