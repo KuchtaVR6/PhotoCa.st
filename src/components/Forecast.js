@@ -1,4 +1,4 @@
-import Coming from "./Coming"
+import Coming from "./Coming.js"
 
 const Forecast = ({weatherData}) => {
   return (

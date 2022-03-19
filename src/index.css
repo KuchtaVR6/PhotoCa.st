@@ -1,6 +1,7 @@
 body {
   margin: 0;
   font-family: 'Inter', sans-serif !important;
+  height: 160vh !important;
 }
 
 .largeFont{
@@ -452,30 +453,79 @@ body {
   font-size: larger;
 }
 
-.arrow {
-  height: 100px;  
-  width: 100px; 
-  margin: 0;
-  position: relative;
-  top: 72.5%;
-  left: 2%;
-
+.box{
+  border: 2px darkgray solid;
+  border-radius: 10px;
+  background-color: lightgrey;
+  width: inherit;
+  height: inherit;
+  text-align: left;
 }
 
-.arrow{
-  max-width: 100%;  
-  height: auto;
-}
-.windspeed{
-  position: absolute;
-  top:78%;
-  left:11%
- 
-}
-.wind{
+.box .header{
+  margin-top: 2vh;
+  margin-right: 4%;
+  font-size: 200%;
   font-weight: bold;
-  position:absolute;
-  top: 75%;
-  left:10%;
-  font-size: 30px;
+}
+
+.box div{
+  margin-left: 4%;
+  margin-top: 1vh;
+}
+
+.box .arrow{
+  float: right;
+  width: 10vh;
+  margin: 5vh 5% 0% 0%;
+}
+
+.box .moon{
+  width: 6.5vh;
+}
+
+.box .main{
+  width: 13vh;
+}
+
+.box .header .reduce{
+  font-size: 50%;
+}
+
+#temperature{
+  padding-top: 10vh;
+  padding-left: 10vw;
+  width: 85%;
+  height: 16vh;
+  padding-bottom: 59vh;
+  font-size: xx-large;
+  color: #FFFFFF;
+  font-weight: bold;
+
+}
+
+#mainTemp{
+  width: 87%;
+}
+
+#mainTemp .main{
+  font-size: 250%;
+}
+
+#mainTemp .secondary{
+  float: right;
+  margin-top: 3%;
+}
+
+#mainTemp .secondary .cold{
+  color: rgb(65, 65, 255)
+}
+
+#mainTemp .secondary .hot{
+  color: rgb(255, 65, 65)
+}
+
+#mainTemp .status{
+  float: left;
+  margin-left: 8%;
 }

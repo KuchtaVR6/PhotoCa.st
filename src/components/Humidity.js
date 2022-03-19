@@ -1,15 +1,14 @@
 const Humidity = ({humidity,visibility,cloud,isMetric}) => {
 
-
-    console.log(isMetric)
+    var length;
 
     if(isMetric)
     {
-        var length = visibility + 'm';
+        length = visibility + 'm';
     }
     else
     {
-        var length = parseInt(parseInt(visibility)*3.28084) + 'ft'
+        length = parseInt(parseInt(visibility)*3.28084) + 'ft'
     }
 
     return (

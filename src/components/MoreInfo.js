@@ -1,8 +1,8 @@
-import Coming from './Coming.js'
 import Humidity from './Humidity.js'
 import Exposure from './Exposure.js'
 import DawnDusk from './DawnDusk.js'
 import Wind from './Wind.js'
+import Moonphase from './Moonphase.js'
 
 const MoreInfo = ({weatherData,isMetric}) => {
   return (
@@ -11,9 +11,11 @@ const MoreInfo = ({weatherData,isMetric}) => {
       <div className="linesInfo">
         <DawnDusk sunrise={weatherData['current']['sunrise']+weatherData['timezone_offset']} sunset={weatherData['current']['sunset']+weatherData['timezone_offset']}/><br/>
       </div>
+
       <Exposure cloudCover={weatherData['current']['clouds']}/>
+      
       <div className="blockInfo">
-        <Coming name="Jhanvi" due="4.03" />
+        <Moonphase phase={weatherData['daily'][0]['moon_phase']} lat={weatherData['lat']}/>
       </div>
 
       <div className="linesInfo">
@@ -22,13 +24,21 @@ const MoreInfo = ({weatherData,isMetric}) => {
       <br/>
 
       <div className="blockInfo">
-        <Wind speed={20} isMetric={true} direction={190}/>
+        <Wind speed={weatherData['current']['wind_speed']} isMetric={isMetric} direction={weatherData['current']['wind_deg']+90}/>
       </div>
 
       <div>
+        <br/>
+        <br/>
+        <br/>
         <hr/>
-        <b>Copyright &copy;</b>
-        <h5>Patryk Kuchta, Alexis S. C. Menard, Navid Satar</h5>
+        <br/>
+        <b>Copyright &copy; 2022</b>
+        <h5>
+          Patryk Kuchta, Alexis S. C. Menard, Navid Satar <br/>
+          Jhanvi Mann, Mohammed Raaid Ali
+        </h5>
+        <h6></h6>
       </div>
 
     </div>

@@ -1,9 +1,9 @@
-const Coming = ({name,due,comment}) => {
+import React from 'react'
+
+const Coming = () => {
   return (
-    <div className="coming">
-      {name}<br/>
-      due on {due}<br/>
-      {comment}
+    <div>
+      
     </div>
   )
 }

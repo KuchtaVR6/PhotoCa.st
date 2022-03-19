@@ -20,7 +20,6 @@ function App() {
 
     const getJSONWeather = async (query) => {
         const loc = await getJSONLocation(query);
-        //console.log(loc);
         const url = `https://api.openweathermap.org/data/2.5/onecall?lat=${loc["0"]["lat"]}&lon=${loc["0"]["lon"]}&cnt=7&appid=c771b4a71a2bb5a57117433fcf3558dd`;
         const response = await fetch(url);
         return await (await response.json());
@@ -35,7 +34,6 @@ function App() {
 
     const fetchData = async (query) => {
         const weather = await getJSONWeather(query)
-        console.log(weather)
         setWeatherData(weather)
     }
 
