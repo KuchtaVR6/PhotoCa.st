@@ -1,28 +1,33 @@
-import Coming from "./Coming.js"
+import NextDay from "./NextDay.js"
 
 const Forecast = ({weatherData}) => {
+    const current = new Date();
+    const first = current.getDate() - current.getDay();// set first day on monday and not sunday
+    const day = current.getDay();
+    const daylist = ["Sunday","Monday","Tuesday","Wednesday ","Thursday","Friday","Saturday", "Sunday","Monday","Tuesday","Wednesday ","Thursday","Friday","Saturday"];
+    const date = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
+  
   return (
     <div className="page forecast">
       <div className="smallfore">
-        <Coming name="Navid" due="04.02" comment={"nday : int - index of the day (e.g. 1 -> tomorrow)"} />
+        <NextDay nday={daylist[day+1]} data={weatherData['daily'][day+1]} isMetric={false} />
       </div>
       <div className="smallfore">
-        <Coming name="Navid" due="04.02" comment={"nday : int - index of the day (e.g. 1 -> tomorrow)"} />
+        <NextDay nday={daylist[day+1]} data={weatherData['daily'][day+1]} isMetric={false}  />
       </div>
       <div className="smallfore">
-        <Coming name="Navid" due="04.02" comment={"nday : int - index of the day (e.g. 1 -> tomorrow)"} />
+        <NextDay nday={daylist[day+1]} data={weatherData['daily'][day+1]} isMetric={false}  />
       </div>
       <div className="smallfore">
-        <Coming name="Navid" due="04.02" comment={"nday : int - index of the day (e.g. 1 -> tomorrow)"} />
+        <NextDay nday={daylist[day+1]} data={weatherData['daily'][day+1]} isMetric={false}  />
       </div>
       <div className="smallfore">
-        <Coming name="Navid" due="04.02" comment={"nday : int - index of the day (e.g. 1 -> tomorrow)"} />
+        <NextDay nday={daylist[day+1]} data={weatherData['daily'][day+1]} isMetric={false} />
       </div>
-      <div className="smallfore">
-        <Coming name="Navid" due="04.02" comment={"nday : int - index of the day (e.g. 1 -> tomorrow)"} />
-      </div>
+      
 
     </div>
+    
   )
 }
 

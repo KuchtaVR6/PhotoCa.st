@@ -529,3 +529,30 @@ body {
   float: left;
   margin-left: 8%;
 }
+
+.humidity{
+  margin-left:6%;
+  text-align: left;
+  font-weight: bolder;
+}
+
+.speed{
+ margin-left:6%;
+ text-align: left;
+ font-weight: bolder;
+}
+
+.sunset{
+ margin-left:6%;
+ text-align: left;
+ font-weight: bolder;
+}
+
+.cloud{
+  font-weight: bolder;
+  font-size: larger;
+}
+
+.coming-child{
+  margin-top:10%;
+}
