@@ -25,7 +25,7 @@ const Landing = ({weatherData, isMetric}) => {
           normalTemp={weatherData['daily'][0]['temp']['day']}
           lowTemp={weatherData['daily'][0]['temp']['min']}
           highTemp={weatherData['daily'][0]['temp']['max']}
-          status={weatherData['current']['weather'][0]['description']}
+          status={weatherData['current']['weather'][0]['main']}
           isMetric={isMetric}
         />
       </div>
