@@ -362,12 +362,6 @@ body {
   background-color: rgb(255, 255, 255);
   text-align: left;
 }
-
-
-#float-container{
-  border: 3px solid #fff;
-  padding: 0;
- }
  
  #float-container b{
    font-size:large;
@@ -438,19 +432,6 @@ body {
 
  .day{
   float:left;
-}
-
-
-.humidity{
-  padding-top: 2%;
-  margin-left:6%;
-  text-align: left;
-  font-weight: bolder;
-}
-
-.cloud{
-  font-weight: bolder;
-  font-size: larger;
 }
 
 .box{
@@ -530,29 +511,88 @@ body {
   margin-left: 8%;
 }
 
+.smallfore{
+  padding-top: 3vh;
+  padding-left: 2vh;
+  padding-right: 2vh;
+  height: 24vh;
+}
+
+
+hr{
+  height:1px;
+  border: none;
+  background-color: #082032;
+}
+
+
+.coming{
+  background-color:#2C394B;
+  border: 1px rgb(61, 61, 61) solid;
+  border-radius: 5px;
+  color: white;
+  border-radius: 5px;
+  width: 100%;
+  height: inherit;
+}
+
+#float-container{
+  margin-left:10%;
+  margin-bottom: 5%;
+}
+
+#current_date{
+  margin: 3%;
+  border-radius: 5px;
+  background-color: #aca7cbb4;
+  text-align:center;
+  font-size: large;
+  font-weight: bolder;
+}
+
+.temperature-forecast{
+  margin-left:10%;
+  margin-bottom:2vh;
+  text-align: left;
+  font-weight: bolder;
+}
+
+.precipitation-forecast{
+  margin-left:10%;
+  margin-bottom:2vh;
+  text-align: left;
+  font-weight: bolder;
+}
+
+.sunrise-forecast{
+  margin-left:10%;
+  text-align: left;
+  font-weight: bolder;
+}
+
 .humidity{
+  padding-top: 0%;
   margin-left:6%;
+  margin-bottom:2vh;
   text-align: left;
   font-weight: bolder;
 }
 
 .speed{
  margin-left:6%;
+ margin-bottom:2vh;
  text-align: left;
  font-weight: bolder;
 }
 
 .sunset{
  margin-left:6%;
+ margin-bottom:2vh;
  text-align: left;
  font-weight: bolder;
 }
 
-.cloud{
-  font-weight: bolder;
-  font-size: larger;
-}
 
-.coming-child{
-  margin-top:10%;
+.forecast{
+  padding-top: 12%;
 }

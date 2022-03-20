@@ -12,7 +12,6 @@ const Moonphase = ({ phase, lat }) => {
             classN = "secondary moon"
         }
         index = parseInt((index % 1) * 29) + offset
-        console.log(index)
         if (index === 0) {
             return (<img className={classN} alt="newMoon" src="lunar/newMoon.svg"></img>)
         }
