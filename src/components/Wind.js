@@ -49,7 +49,7 @@ const Wind = ({ speed, isMetric, direction }) => {
     }
 
     return (
-        <div class="box">
+        <div className="box">
 
             <img className="arrow" src="/windarrow.png" alt={`wind arrow pointing at ${direction}`} style={{ transform: `rotate(${direction}deg)` }} />
 

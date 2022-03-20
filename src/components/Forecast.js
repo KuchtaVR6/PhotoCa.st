@@ -8,14 +8,10 @@ const Forecast = ({weatherData,isMetric}) => {
   const[day,setDay] = useState(0);
 
   useEffect(()=>{
-
     //calculating the date factoring in the timezone_offset
     var epoch = ((new Date()).getTime())+weatherData['timezone_offset']*1000
-    console.log(epoch)
     var current = new Date(epoch);
-    console.log(current)
     setDay(current.getDay());
-    console.log("day",day)
   },[weatherData,day])
   
   return (

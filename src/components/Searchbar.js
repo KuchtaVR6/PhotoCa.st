@@ -20,7 +20,7 @@ const Searchbar = ({ toggle, showSearchBar, changeLocation }) => {
             </th>
             <th id="SearchInputTable">
               <div id="SearchInput">
-                <input id="city" type="text" onchange={search}></input>
+                <input id="city" type="text"></input>
               </div>
             </th>
             <th id="SearchComfirmTable">
