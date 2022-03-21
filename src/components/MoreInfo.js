@@ -7,7 +7,7 @@ import Moonphase from './Moonphase.js'
 const MoreInfo = ({weatherData,isMetric}) => {
   return (
     <div id="moreinfo">
-      <span className="scrollDown">↓&nbsp;&nbsp;&nbsp;&nbsp;Scrool Down&nbsp;&nbsp;&nbsp;&nbsp;↓</span>
+      <span className="scrollDown">↓&nbsp;&nbsp;&nbsp;&nbsp;Scroll Down&nbsp;&nbsp;&nbsp;&nbsp;↓</span>
       <div className="linesInfo">
         <DawnDusk sunrise={weatherData['current']['sunrise']+weatherData['timezone_offset']} sunset={weatherData['current']['sunset']+weatherData['timezone_offset']}/><br/>
       </div>
