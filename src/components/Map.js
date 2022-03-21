@@ -2,7 +2,7 @@ const Map = () => {
   return (
     <div className="page map">
       <div id="topbar"/>
-      <div>Clound cover map</div>
+      <div>Cloud cover map</div>
       <iframe 
         width="100%" 
         frameBorder="0" 
@@ -13,8 +13,6 @@ const Map = () => {
 
     </div>
   )
-
-  //http://umap.openstreetmap.fr/en/map/anonymous-edit/731285:68qGuBwWglT37Ir5h82bDd3Y0MA
 }
 
 export default Map

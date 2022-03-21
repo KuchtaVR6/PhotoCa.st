@@ -263,6 +263,7 @@ body {
 
 #moreinfo{
   margin-top: 0vh;
+  padding-top: 1vh;
   width: 100%;
   height: 73vh;
   border-radius: 20px;
@@ -315,9 +316,9 @@ body {
 
 
 .coming{
-  background-color:rgba(105, 105, 105, 0.438);
-  border: 1px rgb(61, 61, 61) solid;
-  color: white;
+  background-color: lightgray;
+  border: 2px darkgrey solid;
+  color: black;
   border-radius: 5px;
   width: 100%;
   height: inherit;
@@ -496,11 +497,11 @@ body {
 }
 
 #mainTemp .secondary .cold{
-  color: rgb(65, 65, 255)
+  color: rgb(41, 248, 255);
 }
 
 #mainTemp .secondary .hot{
-  color: rgb(255, 65, 65)
+  color: rgb(253, 114, 114)
 }
 
 #mainTemp .status{
@@ -519,18 +520,7 @@ body {
 hr{
   height:1px;
   border: none;
-  background-color: #082032;
-}
-
-
-.coming{
-  background-color:#2C394B;
-  border: 1px rgb(61, 61, 61) solid;
-  border-radius: 5px;
-  color: white;
-  border-radius: 5px;
-  width: 100%;
-  height: inherit;
+  background-color: darkgray;
 }
 
 #float-container{
@@ -605,3 +595,7 @@ hr{
   padding-top: 12%;
 }
 
+.scrollDown{
+  color: rgba(128, 128, 128, 0.794);
+  font-weight: bold;
+}

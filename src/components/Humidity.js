@@ -1,7 +1,7 @@
 const Humidity = ({humidity,visibility,cloud,isMetric}) => {
 
     var length;
-
+    //change the length based on metric parameter
     if(isMetric)
     {
         length = visibility + 'm';

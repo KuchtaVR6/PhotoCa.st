@@ -5,20 +5,24 @@ import { WiHumidity } from "react-icons/wi";
 import { BsCloudRainHeavy } from "react-icons/bs"
 import { FaTemperatureLow } from "react-icons/fa"
 
-const NextDay = ({ tempData, data, isMetric, nday }) => {
+const NextDay = ({ tempData, data, isMetric, nday, offset }) => {
   /* 
   calculating the sunrise time and sunset time for display
+
+  factoring in the offsets (read more in landing)
   */
-  var epoch = parseInt(data['sunrise'] - 1800);
+  var epoch = parseInt(data['sunrise'] - 1800)+offset-((new Date()).getTimezoneOffset()*60);
   var myDate = new Date(epoch * 1000);
   var hourDawn = myDate.getHours();
   var minutesDawn = myDate.getMinutes();
 
-  epoch = parseInt(data['sunset'] + 3200);
+  epoch = parseInt(data['sunset'] + 3200)+offset-((new Date()).getTimezoneOffset()*60);
   myDate = new Date(epoch * 1000);
   var hourDusk = myDate.getHours();
   var minutesDusk = myDate.getMinutes();
 
+
+  //add the leading zero to minutes for the correct formating
   if (minutesDusk < 10) {
     minutesDusk = '0' + minutesDusk
   }
@@ -37,6 +41,7 @@ const NextDay = ({ tempData, data, isMetric, nday }) => {
     }
   }
 
+  //return the speed based on the isMetric parameter
   function returnSpeed() {
     if (isMetric) {
       return Math.round(data['wind_speed']) + " khp"
@@ -65,7 +70,7 @@ const NextDay = ({ tempData, data, isMetric, nday }) => {
             </div>
             <div className="sunrise-forecast">
               <div style={{ float: "left" }}><BsSunrise size={25} /></div>
-              <span style={{ padding: "20% 0 0 10px" }}>{hourDusk}:{minutesDusk} </span>
+              <span style={{ padding: "20% 0 0 10px" }}>{hourDawn}:{minutesDawn} </span>
             </div>
           </div>
           <div id="float-child">
@@ -79,7 +84,7 @@ const NextDay = ({ tempData, data, isMetric, nday }) => {
             </div>
             <div className="sunset">
               <div style={{ float: "left" }}><BsSunset size={25} /> </div>
-              <span style={{ padding: "20% 0 0 10px" }}>{hourDawn}:{minutesDawn} </span>
+              <span style={{ padding: "20% 0 0 10px" }}>{hourDusk}:{minutesDusk} </span>
             </div>
           </div>
         </div>

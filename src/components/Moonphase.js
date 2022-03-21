@@ -12,6 +12,7 @@ const Moonphase = ({ phase, lat }) => {
             classN = "secondary moon"
         }
         index = parseInt((index % 1) * 29) + offset
+        //calculate the day of the cycle and show the correct day based on the day
         if (index === 0) {
             return (<img className={classN} alt="newMoon" src="lunar/newMoon.svg"></img>)
         }
@@ -61,11 +62,6 @@ const Moonphase = ({ phase, lat }) => {
                     </tr>
                 </tbody>
             </table>
-
-
-
-
-
         </div>
     )
 }

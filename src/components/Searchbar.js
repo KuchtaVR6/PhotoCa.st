@@ -3,6 +3,7 @@ import { MdCancel } from "react-icons/md";
 
 const Searchbar = ({ toggle, showSearchBar, changeLocation, warningSearch }) => {
 
+  //calling the correct function when the user searches
   const search = (event) => {
     event.preventDefault();
     changeLocation(document.getElementById("city").value)
@@ -28,7 +29,7 @@ const Searchbar = ({ toggle, showSearchBar, changeLocation, warningSearch }) => 
             </th>
             <th id="SearchInputTable">
               <div id="SearchInput">
-                <input id="city" type="text" onKeyDown={checkEnter}></input>
+                <input id="city" type="text" onKeyDown={checkEnter} placeholder="Type location here"></input>
               </div>
             </th>
             <th id="SearchComfirmTable">

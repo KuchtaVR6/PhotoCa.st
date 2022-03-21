@@ -1,4 +1,6 @@
 const Wind = ({ speed, isMetric, direction }) => {
+
+    //return the speed based on the isMetric parameter
     function calMetric() {
         if (isMetric) {
             return 'Speed: ' + speed + 'kph'
@@ -8,6 +10,8 @@ const Wind = ({ speed, isMetric, direction }) => {
             return 'Speed: ' + aspeed + 'mph'
         }
     }
+
+    //return the wind type based on the speed
     function windType() {
         if (speed < 2) {
             return 'Wind Type: Calm'

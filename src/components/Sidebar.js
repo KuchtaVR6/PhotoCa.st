@@ -5,6 +5,8 @@ import { ImAccessibility } from "react-icons/im";
 import { IoMdArrowBack } from "react-icons/io";
 
 const Sidebar = ({ showSidebar, toggle, toggleMetric, toggleImperial, toggleLF, isMetric, isLF}) => {
+
+    //as we don't have frech support (yet) in redirect to an image 
     const redirectFrench = () => {
         window.location='https://media.istockphoto.com/vectors/coming-soon-french-rubber-stamp-vector-id1272170898?k=20&m=1272170898&s=170667a&w=0&h=u483hsEbQCns0Wcq6tDI7OmJbLhmByyTazpLX_fHLgE='
     }

@@ -12,15 +12,22 @@ import Searchbar from "./components/Searchbar.js";
 import Sidebar from "./components/Sidebar.js";
 
 function App() {
+    //return the location based on query
     const getJSONLocation = async (query) => {
         const url = `http://api.openweathermap.org/geo/1.0/direct?q=${query}&limit=1&appid=c771b4a71a2bb5a57117433fcf3558dd`;
         const response = await fetch(url);
         return await (await response.json());
     }
 
+    //set the weatherData to the response to the API
     const getJSONWeather = async (query) => {
         const loc = await getJSONLocation(query);
         if ("0" in loc) {
+            setCity(loc[0]["name"])
+            setCountry(loc[0]["country"])
+            //if 0 is in the json response that means there was at least one
+            // location mathing the query
+
             //check if the location fetch was succefull
             const url = `https://api.openweathermap.org/data/2.5/onecall?lat=${loc["0"]["lat"]}&lon=${loc["0"]["lon"]}&cnt=7&appid=c771b4a71a2bb5a57117433fcf3558dd`;
             const response = await fetch(url);
@@ -47,10 +54,17 @@ function App() {
 
     //state  keeping whether the api respose
     const [weatherData, setWeatherData] = useState({});
+
+    //state keeping the city
+    const [city, setCity] = useState("London")
+
+    //state keeping the country
+    const [country, setCountry] = useState("GB")
     
     //state to keep track of whether it is the initial render
     const initRender = useRef(true)
 
+    //this is an async method that will call the method that will actually do the API calls.
     const fetchData = async (query) => {
         return await getJSONWeather(query)
     }
@@ -86,11 +100,13 @@ function App() {
         setSidebar(!showSidebar);
     };
 
+    //toggle showSearch and preventDefault on event
     const toggleSearch = (event) => {
         event.preventDefault();
         setSearchBar(!showSearchBar)
     }
 
+    //toggle without preventing event
     const toggleSearchNoArg = () => {
         setSearchBar(!showSearchBar)
     }
@@ -110,6 +126,7 @@ function App() {
         setIsMetric(true);
     };
 
+    // you have found an easter egg this changes to imperial units
     const setWrong = () => {
         setIsMetric(false);
     };
@@ -118,7 +135,7 @@ function App() {
         setLF(!largeFont);
     }
 
-
+    //when the api response is not ready display loading 
     if (initRender.current) {
         return (
             <div id="loading">
@@ -151,7 +168,7 @@ function App() {
                 }}
             >
                 <SplideSlide>
-                    <Home weatherData={weatherData} isMetric={isMetric} />
+                    <Home weatherData={weatherData} isMetric={isMetric} city={city} country={country}/>
                 </SplideSlide>
                 <SplideSlide>
                     <Forecast weatherData={weatherData} isMetric={isMetric} />
@@ -162,6 +179,8 @@ function App() {
             </Splide>
         </div>
     );
+
+    // /\ markup above in the HTML is responsible for the slides
 }
 
 export default App;

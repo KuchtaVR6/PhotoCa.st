@@ -33,7 +33,8 @@ const TimesTop = ({ time, sunrise, sunset, nextSunrise }) => {
   if (minutesSet < 10) {
     minutesSet = '0' + minutesSet
   }
-
+  
+  // calcuatio
   useEffect(()=>{
     function goldenHour() {
       if (time > sunset) {
