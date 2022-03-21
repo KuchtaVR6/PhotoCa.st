@@ -7,7 +7,7 @@ const Map = () => {
         width="100%" 
         frameBorder="0" 
         title="Common picturesque places"
-        src="https://embed.windy.com/embed2.html?lat=52.866&lon=0.842&detailLat=52.160&detailLon=-2.109&width=650&height=450&zoom=5&level=surface&overlay=clouds&product=ecmwf&menu=&message=true&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=default&metricTemp=default&radarRange=-1"
+        src="https://embed.windy.com/embed2.html?lat=51.026&lon=-0.03&detailLat=53.733&detailLon=-9.345&width=650&height=450&zoom=9&level=surface&overlay=clouds&product=ecmwf&menu=&message=&marker=true&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=default&metricTemp=default&radarRange=-1"
       >
       </iframe>
 
