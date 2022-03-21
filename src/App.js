@@ -1,6 +1,6 @@
 import "./App.css";
-import {Splide, SplideSlide} from "@splidejs/react-splide";
-import {useEffect, useRef, useState} from "react";
+import { Splide, SplideSlide } from "@splidejs/react-splide";
+import { useEffect, useRef, useState } from "react";
 
 import "@splidejs/splide/dist/css/themes/splide-skyblue.min.css";
 
@@ -20,28 +20,47 @@ function App() {
 
     const getJSONWeather = async (query) => {
         const loc = await getJSONLocation(query);
-        const url = `https://api.openweathermap.org/data/2.5/onecall?lat=${loc["0"]["lat"]}&lon=${loc["0"]["lon"]}&cnt=7&appid=c771b4a71a2bb5a57117433fcf3558dd`;
-        const response = await fetch(url);
-        return await (await response.json());
+        if ("0" in loc) {
+            //check if the location fetch was succefull
+            const url = `https://api.openweathermap.org/data/2.5/onecall?lat=${loc["0"]["lat"]}&lon=${loc["0"]["lon"]}&cnt=7&appid=c771b4a71a2bb5a57117433fcf3558dd`;
+            const response = await fetch(url);
+            setWeatherData(await response.json());
+            return true
+        }
+        return false
     }
 
+    //state that keeps the setting of Metric or Imperial
     const [isMetric, setIsMetric] = useState(true);
+
+    //state that keeps that setting of large font
     const [largeFont, setLF] = useState(false);
+
+    //state  keeping whether the sidebar should be shown
     const [showSidebar, setSidebar] = useState(false);
+
+    //state  keeping whether the search bar should be shown
     const [showSearchBar, setSearchBar] = useState(false);
+
+    //state keeping whether the search bar should display the warning (location not found warning)
+    const[warningSearch,setWarningSearch] = useState(false);
+
+    //state  keeping whether the api respose
     const [weatherData, setWeatherData] = useState({});
+    
+    //state to keep track of whether it is the initial render
     const initRender = useRef(true)
 
     const fetchData = async (query) => {
-        const weather = await getJSONWeather(query)
-        setWeatherData(weather)
+        return await getJSONWeather(query)
     }
 
-    useEffect( () => {
-        if(initRender.current){
+    useEffect(() => {
+        if (initRender.current) {
+            //fetch data for the initial render
             fetchData("London");
             initRender.current = false;
-        }else{
+        } else {
             //inserting the labels into the buttons
             var buttons = document.querySelectorAll("[aria-label=\"Go to slide 1\"]");
             var text = document.createTextNode("Home");
@@ -77,24 +96,30 @@ function App() {
     }
 
     const changeLocation = async (query) => {
-        toggleSearchNoArg();
-        await fetchData(query);
+        if(await fetchData(query))
+        {
+            toggleSearchNoArg();
+            setWarningSearch(false);
+        }
+        else{
+            setWarningSearch(true);
+        }
     }
 
-    const setMetric = () =>{
+    const setMetric = () => {
         setIsMetric(true);
     };
 
-    const setWrong = () =>{
+    const setWrong = () => {
         setIsMetric(false);
     };
 
-    const toggleLF = () =>{
+    const toggleLF = () => {
         setLF(!largeFont);
     }
 
 
-    if(initRender.current){
+    if (initRender.current) {
         return (
             <div id="loading">
             </div>
@@ -102,21 +127,22 @@ function App() {
     }
 
     return (
-        <div className={largeFont? "App largeFont":"App"}>
+        <div className={largeFont ? "App largeFont" : "App"}>
             <Topbar toggle={toggleSide}
-                    toggleSearch={toggleSearch}/>
-            <Searchbar 
-                toggle={toggleSearch} 
+                toggleSearch={toggleSearch} />
+            <Searchbar
+                toggle={toggleSearch}
                 showSearchBar={showSearchBar}
-                changeLocation={changeLocation}/>
-            <Sidebar 
-                showSidebar={showSidebar} 
-                toggle={toggleSide} 
-                toggleMetric={setMetric} 
-                toggleImperial={setWrong} 
+                changeLocation={changeLocation}
+                warningSearch={warningSearch} />
+            <Sidebar
+                showSidebar={showSidebar}
+                toggle={toggleSide}
+                toggleMetric={setMetric}
+                toggleImperial={setWrong}
                 isMetric={isMetric}
-                toggleLF={toggleLF} 
-                isLF={largeFont} 
+                toggleLF={toggleLF}
+                isLF={largeFont}
             />
             <Splide
                 options={{
@@ -125,13 +151,13 @@ function App() {
                 }}
             >
                 <SplideSlide>
-                    <Home weatherData={weatherData} isMetric={isMetric}/>
+                    <Home weatherData={weatherData} isMetric={isMetric} />
                 </SplideSlide>
                 <SplideSlide>
-                    <Forecast weatherData={weatherData} isMetric={isMetric}/>
+                    <Forecast weatherData={weatherData} isMetric={isMetric} />
                 </SplideSlide>
                 <SplideSlide>
-                    <Map/>
+                    <Map />
                 </SplideSlide>
             </Splide>
         </div>

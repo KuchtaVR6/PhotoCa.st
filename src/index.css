@@ -65,10 +65,10 @@ body {
 }
 
 .sidebar .proper img{
-  margin-top: 20%;
-  margin-bottom: 10%;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
   z-index: 11;
-  width: 60%;
+  width: 15vh;
 }
 
 .sidebar .proper .label{
@@ -144,28 +144,25 @@ body {
   transition: left 0.3s ease-in-out;
 }
 
-/*
-
-.sidebar {
-  position: fixed;
-  z-index: 10;
-  top: 0px;
-  height: 100vh;
-  left: -100vw;
-  width: 100vw;
-  font-size: 50%;
-  transition: left 0.3s ease-in-out;
-  
+.Searchbar .error{
+  color: rgb(255, 0, 0);
+  text-align: center;
 }
 
-*/
+.Searchbar .error h3{
+  background-color: rgba(255, 255, 255, 0.918);
+  border-radius: 2px;
+  margin: 10%;
+  padding: 2%;
+}
+
 
 .Searchbar.open {
   left: 0;
 }
 
 #SearchTable{
-  margin-top: 2%;
+  margin-top: 1vh;
   height: 5%;
   width:100%;
 }
@@ -180,7 +177,7 @@ body {
 
 #SearchInput input{
   font-size:1.5em;
-  padding: 2%;
+  padding: 4px;
   border-radius: 4%;
   border: none;
   width: 90%;
@@ -542,7 +539,7 @@ hr{
 }
 
 #current_date{
-  margin: 3%;
+  margin: 1vh;
   border-radius: 5px;
   background-color: #aca7cbb4;
   text-align:center;
@@ -568,6 +565,17 @@ hr{
   margin-left:10%;
   text-align: left;
   font-weight: bolder;
+}
+
+.currhumidity{
+  padding-top: 1.5vh;
+  text-align: left;
+}
+
+.cloud{
+  padding-top: 1.5vh;
+  margin-right: 20%;
+  text-align: right;
 }
 
 .humidity{
@@ -596,3 +604,4 @@ hr{
 .forecast{
   padding-top: 12%;
 }
+

@@ -14,7 +14,7 @@ const Humidity = ({humidity,visibility,cloud,isMetric}) => {
     return (
     <div id="float-container">
         <div id="float-child">
-            <div className="humidity">Humidity: <b>{humidity}%</b> <br></br>
+            <div className="currhumidity">Humidity: <b>{humidity}%</b> <br></br>
             Visibility: <b>{length}</b></div>  
         </div>
         <div id="float-child">
