@@ -17,6 +17,7 @@ const Moonphase = ({ phase, lat }) => {
             return (<img className={classN} alt="newMoon" src="lunar/newMoon.svg"></img>)
         }
         else if (index < 7) {
+            // if the cooridinates are southern rotate the moon
             return (<img className={classN} alt="QuarterMoon" style={{ transform: `rotate(${south ? 180 : 0}deg)` }} src="lunar/darkQuarter.svg"></img>)
         }
         else if (index === 7) {

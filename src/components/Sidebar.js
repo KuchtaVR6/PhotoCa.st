@@ -11,6 +11,7 @@ const Sidebar = ({ showSidebar, toggle, toggleMetric, toggleImperial, toggleLF, 
         window.location='https://media.istockphoto.com/vectors/coming-soon-french-rubber-stamp-vector-id1272170898?k=20&m=1272170898&s=170667a&w=0&h=u483hsEbQCns0Wcq6tDI7OmJbLhmByyTazpLX_fHLgE='
     }
 
+    //add "selected" if something is selected
     return (
         <div className={showSidebar ? 'sidebar open' : 'sidebar'}>
             <div className='proper'>

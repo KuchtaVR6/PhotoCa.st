@@ -1,15 +1,53 @@
 body {
+  display: flex;
   margin: 0;
   font-family: 'Inter', sans-serif !important;
   height: 160vh !important;
 }
+
+@media screen and (min-width: 520px) {
+  .App {
+    width: 520px;
+    margin: auto;
+  }
+
+  #topbar{
+    width: 520px !important;
+  }
+
+  .splide__pagination{
+    width: 520px !important;
+  }
+
+  .sidebar{
+    width: 520px;
+  }
+
+  .Searchbar{
+    width: 520px;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .splide__pagination{
+    width: 100% !important;
+  }
+  .sidebar{
+    width: 100%;
+  }
+  .Searchbar{
+    width: 100%;
+  }
+}
+
+
 
 .largeFont{
   font-size: 130%;
 }
 
 .page{
-  width: 100vw;
+  width: 100%;
   height: 180vh;
 }
 
@@ -19,7 +57,6 @@ body {
   height: 5% !important;
   margin: 0% !important;
   padding: 0% !important;
-  width: 100% !important;
 }
 
 .splide__pagination li{
@@ -43,11 +80,10 @@ body {
 
 .sidebar {
   position: fixed;
-  z-index: 10;
+  z-index: 11;
   top: 0px;
-  height: 100vh;
-  left: -100vw;
-  width: 100vw;
+  height: 130vh;
+  left: -100%;
   font-size: 50%;
   transition: left 0.3s ease-in-out;
   
@@ -59,7 +95,7 @@ body {
 
 .sidebar .proper{
   float: left;
-  width: 60vw;
+  width: 60%;
   height: inherit;
   background-color: #FFFFFF;
 }
@@ -117,11 +153,11 @@ body {
 
 .sidebar #close{
   float: right;
-  width: 40vw;
-  height: 100vh;
+  width: 40%;
+  height: 130vh;
   background: none;
   border: none;
-  backdrop-filter: blur(2px);
+  backdrop-filter: blur(8px);
 }
 
 #topbar{
@@ -136,7 +172,6 @@ body {
 .Searchbar{
   position: fixed;
   z-index: 3;
-  width: 100%;
   left: 100%;
   height: 7%;
   background-color: rgb(255, 255, 255);
@@ -241,7 +276,7 @@ body {
   top: 0;
   width: 100%;
   height: 100vh;
-  background-size: 150vw;
+  background-size: 150%;
   background-image: url('https://wallpaperaccess.com/full/1806514.jpg');
   background-attachment: fixed;
   text-align: center;
@@ -256,7 +291,7 @@ body {
   top: 0;
   width: 100%;
   height: 100vh;
-  background-size: 150vw;
+  background-size: 150%;
   background-image: url('https://wallpaperaccess.com/full/1806514.jpg');
   background-attachment: fixed;
 }
@@ -272,22 +307,22 @@ body {
 
 #temperature{
   padding-top: 12vh;
-  padding-left: 10vw;
-  width: 80vw;
+  padding-left: 10%;
+  width: 80%;
   height: 16vh;
   padding-bottom: 59vh;
 }
 
 #hours{
   height: 10vh;
-  width: 95vw;
-  padding-left: 2.5vw;
+  width: 95%;
+  padding-left: 2.5%;
 }
 
 .linesInfo{
   height: 6vh;
-  width: 88vw;
-  padding-left: 6vw;
+  width: 88%;
+  padding-left: 6%;
   padding-top: 1vh;
   padding-bottom: 1vh;
 }
@@ -298,8 +333,8 @@ body {
 
 .blockInfo{
   height: 18vh;
-  width: 88vw;
-  padding-left: 6vw;
+  width: 88%;
+  padding-left: 6%;
   padding-top: 1vh;
   padding-bottom: 1vh;
 }
@@ -473,7 +508,7 @@ body {
 
 #temperature{
   padding-top: 10vh;
-  padding-left: 10vw;
+  padding-left: 10%;
   width: 85%;
   height: 16vh;
   padding-bottom: 59vh;

@@ -15,6 +15,8 @@ const Forecast = ({weatherData,isMetric}) => {
     setDay(current.getDay());
   },[weatherData,day])
   
+
+  //for each day of the next 6 days
   return (
     <div className="page forecast">
       <div className="smallfore">

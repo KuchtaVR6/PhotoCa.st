@@ -6,8 +6,19 @@ import { useState, useEffect } from 'react'
 
 var interval;
 
-const Landing = ({weatherData, isMetric, city, country}) => {
-  const[time, setTime] = useState(0)
+const Landing = ({ weatherData, isMetric, city, country }) => {
+  const [time, setTime] = useState(0)
+
+  const stdTimezoneOffset = () => {
+    var jan = new Date((new Date).getYear(), 0, 1);
+    var jul = new Date((new Date).getYear(), 6, 1);
+    if (Math.max(jan.getTimezoneOffset(), jul.getTimezoneOffset()) == ((new Date()).getTimezoneOffset())) {
+      return ((new Date()).getTimezoneOffset());
+    }
+    else {
+      return -((new Date()).getTimezoneOffset());
+    }
+  }
 
   //refreshing the time every 3 seconds taking into account the correct timezone
   useEffect(() => {
@@ -16,13 +27,13 @@ const Landing = ({weatherData, isMetric, city, country}) => {
       // we remove the timezone offset of this time (always going to absolute GTM time) and then adding
       // the timezone_offset from the API. This way if a user in Paris (+1h) and ask for the weather in London (+0) it will
       // remove their time offset of 1h and then factor in the correct offset (+0h) show the time in the searched location
-      setTime(((new Date()).getTime() / 1000)-((new Date()).getTimezoneOffset() * 60)+weatherData['timezone_offset']);
+      setTime(((new Date()).getTime() / 1000) - stdTimezoneOffset() * 60 + weatherData['timezone_offset']);
     }
     clearInterval(interval);
     refreshTime();
     interval = setInterval(refreshTime, 10000)
-  },[weatherData]);
-  
+  }, [weatherData]);
+
   return (
     <div id="landing">
       <div id="temperature">
@@ -32,17 +43,17 @@ const Landing = ({weatherData, isMetric, city, country}) => {
           highTemp={weatherData['daily'][0]['temp']['max']}
           status={weatherData['current']['weather'][0]['main']}
           isMetric={isMetric}
-          city = {city}
-          country = {country}
+          city={city}
+          country={country}
         />
       </div>
       <div id="hours">
-        <TimesTop time={time} sunrise={weatherData['current']['sunrise']+weatherData['timezone_offset']} sunset={weatherData['current']['sunset']+weatherData['timezone_offset']} nextSunrise={weatherData['daily']['1']['sunrise']+weatherData['timezone_offset']}/>
+        <TimesTop time={time} sunrise={weatherData['current']['sunrise'] - stdTimezoneOffset() * 60 + weatherData['timezone_offset']} sunset={weatherData['current']['sunset'] - stdTimezoneOffset() * 60 + weatherData['timezone_offset']} nextSunrise={weatherData['daily']['1']['sunrise'] - stdTimezoneOffset() * 60 + weatherData['timezone_offset']} />
       </div>
-      <MoreInfo 
+      <MoreInfo
         weatherData={weatherData}
-        isMetric = {isMetric}
-        />
+        isMetric={isMetric}
+      />
     </div>
   )
 }

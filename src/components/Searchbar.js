@@ -16,7 +16,7 @@ const Searchbar = ({ toggle, showSearchBar, changeLocation, warningSearch }) => 
       search(event);
     }
   }
-
+  //class name dependent on showSearchBar, of the animation
   return (
     <div className={showSearchBar ? 'Searchbar open' : 'Searchbar'}>
       <table id="SearchTable">
@@ -50,6 +50,7 @@ const Searchbar = ({ toggle, showSearchBar, changeLocation, warningSearch }) => 
       </div>
     </div>
   )
+  // display the warning only if warningSearch is true
 }
 
 export default Searchbar

@@ -142,7 +142,7 @@ function App() {
             </div>
         )
     }
-
+    //enlarge fort class if that is selected
     return (
         <div className={largeFont ? "App largeFont" : "App"}>
             <Topbar toggle={toggleSide}
